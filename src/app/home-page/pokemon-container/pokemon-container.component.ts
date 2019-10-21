@@ -18,7 +18,7 @@ export class PokemonContainerComponent implements OnInit {
   ngOnInit() {
     this.imageUrl = CONSTANTS.API.IMAGEBASEURL+this.pokemon.name+".gif?raw=true"
     this.DetailsService.getPokemonDetails(this.pokemon.name)
-      .subscribe(data=>{
+      .subscribe((data:{types:any})=>{
         this.types = data.types.map(ele => {
           let temp = {
             name: ele.type.name,
