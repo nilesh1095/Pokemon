@@ -1,0 +1,27 @@
+<div class="page-description" *ngIf="isDescriptionShown">
+  <button type="button" (click)="onCloseClicked()" class="close" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <app-description></app-description>
+</div>
+<div class="album mt-5 bg-light">
+  <div class="container">
+    <div class="row">
+        <app-pokemon-container 
+            class="col-md-4" 
+            *ngFor="let pokemon of pokemonData" 
+            [pokemon]=pokemon>
+        </app-pokemon-container>
+    </div>
+  </div>
+</div>
+<nav aria-label="Page navigation example ">
+    <div class="container d-flex mb-5 justify-content-between">
+        <div class="page-item" (click) ="onPreviousClicked()" [ngClass] ="{active : isPreviousActive}">
+            <a class="page-link" tabindex="-1">Previous</a>
+        </div>
+        <div class="page-item" (click)="onNextClicked()" [ngClass] ="{active : isNextActive}" >
+            <a class="page-link">Next</a>
+        </div>
+    </div>
+</nav>
