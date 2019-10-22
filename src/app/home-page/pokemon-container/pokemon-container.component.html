@@ -1,0 +1,21 @@
+<div class="card mb-4 shadow-sm">
+  <div class="image-container">
+      <img src="../../../assets/spinner1.gif" class="spinnerImage"  alt="Loading..." [hidden]="!isImageLoading">
+      <img [hidden]="isImageLoading" (load)="this.isImageLoading = false;" src="{{imageUrl}}"
+        class="bd-placeholder-img card-img-top" width="100%" height="225" alt="...">
+  </div>
+  
+  <div class="card-body">
+    <p class="card-text text-capitalize font-weight-bold">{{pokemon.name}}</p>
+    <div class=" align-items-center">
+      <div class="btn-group">
+        <button type="button" routerLink="/details/{{pokemon.name}}"
+          class="btn btn-sm btn-outline-secondary">Details</button>
+      </div>
+      <div class="float-right" *ngFor="let type of types">
+        <span class="badge badge-primary badge-pill mr-1"
+          [ngStyle]="{'backgroundColor':type.color}">{{type.name}}</span>
+      </div>
+    </div>
+  </div>
+</div>
